@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="MadLibs">
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
     <title>Angular MadLibs</title>
   </head>
-  <body ng-app="MadLibs" ng-controller="madlibsController as ml" ng-cloak>
+  <body ng-controller="madlibsController as ml" my-enter="ml.submit()" ng-cloak>
     <h1>MadLibs Generator</h1>
     <p>MadLibs are a little like a choose-your-own-adventure story, where you choose the nouns, verbs, adverbs and adjectives that will be used in the story, without knowing the context in which they'll be used. Try putting your own words in below (four per type of word, separated by commas but NO SPACES), choose a story for them to be plugged into, and hit submit! </p>
     <div id="word-input">
@@ -29,5 +29,6 @@
     <script type="text/javascript" src="scripts/app.js"></script>
     <script type="text/javascript" src="scripts/controller.js"></script>
     <script type="text/javascript" src="scripts/defaultWords.js"></script>
+    <script type="text/javascript" src="scripts/directives.js"></script>
   </body>
 </html>

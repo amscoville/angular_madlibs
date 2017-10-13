@@ -31,9 +31,13 @@
         // bound method implementations
 
         function submit() {
-            setFinalWords();
-            vm.submitted = true;
-            console.log(vm.final);
+            if (vm.selected === null) {
+                alert('You must select a story!');
+            } else {
+                setFinalWords();
+                vm.submitted = true;
+                console.log(vm.final);
+            }
         }
 
         // utility functions
@@ -48,7 +52,7 @@
 
         function getWordsArr(str, wordType) {
             if (str[str.length-1] === ',') {
-                str.slice(0, -1);
+                str = str.slice(0, -1);
             }
             var arr = str.split(',');
             if (arr.length < 4) {
@@ -75,6 +79,9 @@
 
         function getRandNouns(arr) {
             var num = 4 - arr.length - 1;
+            if (arr[0] === "") {
+                arr[0] = DefaultWords.nouns[getRandNum(arr)];
+            }
             for (var i = 0; i <= num; i++) {
                 var index = getRandNum(DefaultWords.nouns);
                 arr.push(DefaultWords.nouns[index]);
@@ -84,6 +91,9 @@
 
         function getRandVerbs(arr) {
             var num = 4 - arr.length - 1;
+            if (arr[0] === "") {
+                arr[0] = DefaultWords.verbs[getRandNum(arr)];
+            }
             for (var i = 0; i <= num; i++) {
                 var index = getRandNum(DefaultWords.verbs);
                 arr.push(DefaultWords.verbs[index]);
@@ -93,6 +103,9 @@
 
         function getRandAdjectives(arr) {
             var num = 4 - arr.length - 1;
+            if (arr[0] === "") {
+                arr[0] = DefaultWords.adjectives[getRandNum(arr)];
+            }
             for (var i = 0; i <= num; i++) {
                 var index = getRandNum(DefaultWords.adjectives);
                 arr.push(DefaultWords.adjectives[index]);
@@ -102,6 +115,9 @@
 
         function getRandAdverbs(arr) {
             var num = 4 - arr.length - 1;
+            if (arr[0] === "") {
+                arr[0] = DefaultWords.adverbs[getRandNum(arr)];
+            }
             for (var i = 0; i <= num; i++) {
                 var index = getRandNum(DefaultWords.adverbs);
                 arr.push(DefaultWords.adverbs[index]);
