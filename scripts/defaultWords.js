@@ -238,9 +238,10 @@
             }
             var arr = str.split(',');
             if (arr.length < 4) { 
-                var newArr = service.getRandWords(arr, wordType);
+                return service.getRandWords(arr, wordType);
+            } else {
+                return arr;
             }
-            return newArr;
         }
 
         function getRandNum(arrLength) {
