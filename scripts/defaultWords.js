@@ -226,10 +226,7 @@
             adverbs: adverbs,
             getWordsArr: getWordsArr,
             getRandNum: getRandNum,
-            getRandNouns: getRandNouns,
-            getRandVerbs: getRandVerbs,
-            getRandAdjectives: getRandAdjectives,
-            getRandAdverbs: getRandAdverbs
+            getRandWords: getRandWords
         };
         //return service
         return service;
@@ -240,78 +237,26 @@
                 str = str.slice(0, -1);
             }
             var arr = str.split(',');
-            if (arr.length < 4) {
-                if (wordType === 'verb'){
-                    var newArr = service.getRandVerbs(arr);
-                    return newArr;
-                } else if (wordType === 'noun'){
-                    var newArr = service.getRandNouns(arr);
-                    return newArr;
-                } else if (wordType === 'adjective'){
-                    var newArr = service.getRandAdjectives(arr);
-                    return newArr;
-                } else if (wordType === 'adverb'){
-                    var newArr = service.getRandAdverbs(arr);
-                    return newArr;
-                }   
+            if (arr.length < 4) { 
+                var newArr = service.getRandWords(arr, wordType);
             }
-            return arr;
+            return newArr;
         }
 
         function getRandNum(arrLength) {
             return Math.round(Math.random() * (arrLength -1));
         }
 
-        function getRandNouns(arr) {
+        function getRandWords(arr, wordType) {
             var num = 4 - arr.length;
             if (arr[0] === "") {
-                arr[0] = service.nouns[service.getRandNum(service.nouns.length)]; 
+                arr[0] = service[wordType][service.getRandNum(service[wordType].length)]; 
             }
             for (var i = 0; i < num; i++) {
-                var index = service.getRandNum(service.nouns.length);
-                arr.push(service.nouns[index]);
-            }
-            return arr;
-        }
-
-        function getRandVerbs(arr) {
-            var num = 4 - arr.length;
-            if (arr[0] === "") {
-                arr[0] = service.verbs[service.getRandNum(service.verbs.length)]; //returning same random number each time (1)
-            }
-            for (var i = 0; i < num; i++) {
-                var index = service.getRandNum(service.verbs.length);
-                arr.push(service.verbs[index]);
-            }
-            return arr;
-        }
-
-        function getRandAdjectives(arr) {
-            var num = 4 - arr.length;
-            if (arr[0] === "") {
-                arr[0] = service.adjectives[service.getRandNum(service.adjectives.length)];
-            }
-            for (var i = 0; i < num; i++) {
-                var index = service.getRandNum(service.adjectives.length);
-                arr.push(service.adjectives[index]);
-            }
-            return arr;
-        }
-
-        function getRandAdverbs(arr) {
-            var num = 4 - arr.length;
-            if (arr[0] === "") {
-                arr[0] = service.adverbs[service.getRandNum(service.adverbs.length)];
-            }
-            for (var i = 0; i < num; i++) {
-                var index = service.getRandNum(service.adverbs.length);
-                arr.push(service.adverbs[index]);
+                var index = service.getRandNum(service[wordType].length);
+                arr.push(service[wordType][index]);
             }
             return arr;
         }
     }
-
 })();
-
-
-
