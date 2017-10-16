@@ -36,7 +36,6 @@
             } else {
                 setFinalWords();
                 vm.submitted = true;
-                console.log(vm.final);
             }
         }
 
@@ -73,53 +72,53 @@
             return arr;
         }
 
-        function getRandNum(arr) {
-            return Math.round(Math.random() * (arr.length -1 - 0) + 0);
+        function getRandNum(arrLength) {
+            return Math.round(Math.random() * (arrLength -1));
         }
 
         function getRandNouns(arr) {
-            var num = 4 - arr.length - 1;
+            var num = 4 - arr.length;
             if (arr[0] === "") {
-                arr[0] = DefaultWords.nouns[getRandNum(arr)];
+                arr[0] = DefaultWords.nouns[getRandNum(DefaultWords.nouns.length)]; 
             }
-            for (var i = 0; i <= num; i++) {
-                var index = getRandNum(DefaultWords.nouns);
+            for (var i = 0; i < num; i++) {
+                var index = getRandNum(DefaultWords.nouns.length);
                 arr.push(DefaultWords.nouns[index]);
             }
             return arr;
         }
 
         function getRandVerbs(arr) {
-            var num = 4 - arr.length - 1;
+            var num = 4 - arr.length;
             if (arr[0] === "") {
-                arr[0] = DefaultWords.verbs[getRandNum(arr)];
+                arr[0] = DefaultWords.verbs[getRandNum(DefaultWords.verbs.length)]; //returning same random number each time (1)
             }
-            for (var i = 0; i <= num; i++) {
-                var index = getRandNum(DefaultWords.verbs);
+            for (var i = 0; i < num; i++) {
+                var index = getRandNum(DefaultWords.verbs.length);
                 arr.push(DefaultWords.verbs[index]);
             }
             return arr;
         }
 
         function getRandAdjectives(arr) {
-            var num = 4 - arr.length - 1;
+            var num = 4 - arr.length;
             if (arr[0] === "") {
-                arr[0] = DefaultWords.adjectives[getRandNum(arr)];
+                arr[0] = DefaultWords.adjectives[getRandNum(DefaultWords.adjectives.length)];
             }
-            for (var i = 0; i <= num; i++) {
-                var index = getRandNum(DefaultWords.adjectives);
+            for (var i = 0; i < num; i++) {
+                var index = getRandNum(DefaultWords.adjectives.length);
                 arr.push(DefaultWords.adjectives[index]);
             }
             return arr;
         }
 
         function getRandAdverbs(arr) {
-            var num = 4 - arr.length - 1;
+            var num = 4 - arr.length;
             if (arr[0] === "") {
-                arr[0] = DefaultWords.adverbs[getRandNum(arr)];
+                arr[0] = DefaultWords.adverbs[getRandNum(DefaultWords.adverbs.length)];
             }
-            for (var i = 0; i <= num; i++) {
-                var index = getRandNum(DefaultWords.adverbs);
+            for (var i = 0; i < num; i++) {
+                var index = getRandNum(DefaultWords.adverbs.length);
                 arr.push(DefaultWords.adverbs[index]);
             }
             return arr;

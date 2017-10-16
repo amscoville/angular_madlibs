@@ -161,7 +161,6 @@
             'fear-inspiring',
             'narrow-minded',
             'mentally impaired',
-            'bat-shit-crazy',
             'out-of-control'
         ];
         var adverbs = [

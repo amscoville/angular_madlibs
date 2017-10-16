@@ -1,20 +1,27 @@
 body {
-    font-family: arial;
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
-    background-color: chartreuse;
+    background-color: darkgray;
+    font-size: 20px;
 }
 
 #word-input {
     margin: 30px;
+    font-weight: bold;
+}
+
+#select-story {
+    font-weight: bold;
 }
 
 #submit {
     margin: 20px;
-    height: 30px;
-    width: 80px;
-    border-radius: 10%;
-    background-color: navy;
-    font-family: arial;
-    color: white;
+    height: 40px;
+    width: 110px;
+    border-radius: 10px;
+    background-color: white;
     font-weight: bold;
+    font-size: 20px;
+    border: none;
+    outline: none;
 }

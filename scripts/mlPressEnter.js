@@ -1,16 +1,15 @@
 (function(){
     angular
     .module('MadLibs')
-    .directive('myEnter', enter)
+    .directive('mlPressEnter', mlPressEnter)
 
-    function enter() {
+    function mlPressEnter() {
         return function (scope, element, attrs) {
             element.bind("keydown keypress", function (event) {
                 if(event.which === 13) {
                     scope.$apply(function (){
-                        scope.$eval(attrs.myEnter);
+                        scope.$eval(attrs.pressEnter);
                     });
-    
                     event.preventDefault();
                 }
             });
