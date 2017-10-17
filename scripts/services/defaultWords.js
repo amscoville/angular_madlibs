@@ -223,41 +223,9 @@
             verbs: verbs,
             nouns: nouns,
             adjectives: adjectives,
-            adverbs: adverbs,
-            getWordsArr: getWordsArr,
-            getRandNum: getRandNum,
-            getRandWords: getRandWords
+            adverbs: adverbs
         };
         //return service
         return service;
-
-        //methods and functions
-        function getWordsArr(str, wordType) {
-            if (str[str.length-1] === ',') {
-                str = str.slice(0, -1);
-            }
-            var arr = str.split(',');
-            if (arr.length < 4) { 
-                return service.getRandWords(arr, wordType);
-            } else {
-                return arr;
-            }
-        }
-
-        function getRandNum(arrLength) {
-            return Math.round(Math.random() * (arrLength -1));
-        }
-
-        function getRandWords(arr, wordType) {
-            var num = 4 - arr.length;
-            if (arr[0] === "") {
-                arr[0] = service[wordType][service.getRandNum(service[wordType].length)]; 
-            }
-            for (var i = 0; i < num; i++) {
-                var index = service.getRandNum(service[wordType].length);
-                arr.push(service[wordType][index]);
-            }
-            return arr;
-        }
     }
 })();
