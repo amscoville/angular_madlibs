@@ -32,17 +32,21 @@
             }
         }
 
-        function getRandIndex(arrLength) {
-            return Math.round(Math.random() * (arrLength -1));
+        function getRandIndex(arr,filterArr){
+            var randInt = Math.round((Math.random() * (arr.length - 1)) + 0);
+            while (filterArr.includes(arr[randInt])) {
+                randInt = Math.round((Math.random() * (arr.length - 1)) + 0);
+            }
+            return randInt;
         }
 
         function getRandWords(arr, wordType) {
             var num = 4 - arr.length;
             if (arr[0] === "") {
-                arr[0] = DefaultWords[wordType][getRandIndex(DefaultWords[wordType].length)]; 
+                arr[0] = DefaultWords[wordType][getRandIndex(DefaultWords[wordType], arr)]; 
             }
             for (var i = 0; i < num; i++) {
-                var index = getRandIndex(DefaultWords[wordType].length);
+                var index = getRandIndex(DefaultWords[wordType], arr);
                 arr.push(DefaultWords[wordType][index]);
             }
             return arr;

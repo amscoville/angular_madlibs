@@ -3,7 +3,7 @@
     .module('MadLibs')
     .controller('madlibsController', madlibsCtrl);
 
-    function madlibsCtrl(DefaultWords, SpaceFiller) {
+    function madlibsCtrl(SpaceFiller) {
         // local variables (vars)
         var vm = this;
 
