@@ -7,7 +7,6 @@
         var service = {
             getFinalWords: getFinalWords
         };
-
         return service;
 
         function getFinalWords(userWords) {
@@ -25,11 +24,7 @@
                 str = str.slice(0, -1);
             }
             var arr = str.split(',');
-            if (arr.length < 4) { 
-                return getRandWords(arr, wordType);
-            } else {
-                return arr;
-            }
+            return arr.length < 4 ? getRandWords(arr, wordType) : arr;
         }
 
         function getRandIndex(arr,filterArr){
